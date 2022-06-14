@@ -1,3 +1,31 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-[#ecf0f3] text-[#1f2937] tracking-wide;
+  }
+
+  h1,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply text-[#2c2c54];
+  }
+  h2 {
+    @apply font-bold text-[#2c2c54];
+  }
+
+  h1 {
+    @apply sm:text-lg md:text-xl lg:text-2xl;
+  }
+
+  button {
+    @apply shadow-xl shadow-gray-400 rounded-xl  bg-gradient-to-r from-[#5651e5] to-[#709dff] text-white;
+  }
+}
 html,
 body {
   padding: 0;
