@@ -1,9 +1,11 @@
 import React from 'react';
+import { AiOutlineMail } from 'react-icons/ai';
+import { FaGithub, FaLinkedinIn, FaTwitter } from 'react-icons/fa';
 
 export const Hero = () => {
   return (
     <section className='flex ssm:w-[100%] flex-col items-center justify-center w-full h-screen'>
-      <p className='ssm:text-xl md:text-2xl lg:text-3xl '>
+      <p className='text-gray-600 ssm:text-xl md:text-2xl lg:text-3xl'>
         Lets build your app
       </p>
       <div className='flex ssm:w-[100%]items-center justify-center  max-w-[40%] text-center py-3'>
@@ -15,11 +17,26 @@ export const Hero = () => {
       <div className='flex items-center  ssm:w-[100%]justify-center max-w-[60%] text-center '>
         <h3 className=' md:text-xl lg:text-2xl'>
           I'm a Software developer who specializes in React and Javascript. I'm
-          currently focusing on building applitions with Next.js and tailwind
-          while implmenting React best practices. Connnect with me if you need
-          my skills.
+          currently focused on the following technologies: Next.js,
+          Typescript,and Tailwind. Connnect with me if you need my skills.
         </h3>
       </div>
+      <section className='mt-10 '>
+        <div className='flex items-center justify-between w-full my-4 sm:w-[85%] '>
+          <div className='p-5 mx-4 duration-300 ease-in rounded-full shadow-lg shadow-gray-400 hover:scale-105'>
+            <FaLinkedinIn color='blue' />
+          </div>
+          <div className='p-5 mx-4 duration-300 ease-in rounded-full shadow-lg shadow-gray-400 hover:scale-105'>
+            <FaGithub color='black' />
+          </div>
+          <div className='p-5 mx-4 duration-300 ease-in rounded-full shadow-lg shadow-gray-400 hover:scale-105'>
+            <AiOutlineMail color='red' />
+          </div>
+          <div className='p-5 mx-4 duration-300 ease-in rounded-full shadow-lg shadow-gray-400 hover:scale-105'>
+            <FaTwitter color='lightblue' />
+          </div>
+        </div>
+      </section>
     </section>
   );
 };
