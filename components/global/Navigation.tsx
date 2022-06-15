@@ -10,7 +10,7 @@ export const Navigation = () => {
     setIsSideBarDisplayed(true);
   };
   return (
-    <nav className='fixed z-[100] w-full h-24 shadow-xl'>
+    <nav className='sticky top-0 z-[100] w-full h-24 shadow-xl'>
       <section className='flex items-center justify-between w-full h-full px-8 2xl:px-16'>
         <h1>Logo Here</h1>
         <Links
