@@ -6,14 +6,17 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "server": "json-server --watch data.json --port 8000"
   },
   "dependencies": {
+    "@reduxjs/toolkit": "^1.8.2",
     "@types/react-icons": "^3.0.0",
     "icons": "^1.0.0",
     "next": "12.1.6",
     "react": "^18.1.0",
-    "react-dom": "18.1.0"
+    "react-dom": "18.1.0",
+    "react-redux": "^8.0.2"
   },
   "devDependencies": {
     "@types/node": "17.0.42",

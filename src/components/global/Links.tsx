@@ -10,15 +10,13 @@ export const Links = (props: LinksProps) => {
   const { ulClassName, liClassName } = props;
   return (
     <div>
-      {links && (
-        <ul className={ulClassName}>
-          {links.map((link) => (
-            <Link key={link} href='#'>
-              <li className={liClassName}>{link}</li>
-            </Link>
-          ))}
-        </ul>
-      )}
+      <ul className={ulClassName}>
+        {links?.map((link) => (
+          <Link key={link} href='#'>
+            <li className={liClassName}>{link}</li>
+          </Link>
+        ))}
+      </ul>
     </div>
   );
 };

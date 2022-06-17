@@ -1,0 +1,34 @@
+{
+  "store": [
+    {
+      "id": 0,
+      "item": "shoes",
+      "price": 89.99
+    },
+    {
+      "id": 1,
+      "item": "pants",
+      "price": 99.99
+    },
+    {
+      "id": 2,
+      "item": "couch",
+      "price": 109.99
+    },
+    {
+      "id": 3,
+      "item": "bed",
+      "price": 499.99
+    },
+    {
+      "id": 4,
+      "item": "desk",
+      "price": 39.99
+    },
+    {
+      "id": 5,
+      "item": "T.V.",
+      "price": 79.99
+    }
+  ]
+}
