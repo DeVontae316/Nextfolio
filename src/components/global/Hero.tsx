@@ -14,7 +14,7 @@ export const Hero = () => {
         </p>
         <div className='flex flex-col items-center justify-center py-3 text-center'>
           <h1 className='mb-2 ssm:text-3xl md:text-4xl lg:text-5xl'>
-            Hi, I'm <span className=''>DeVontae</span>
+            Hi, I&#39;m <span className=''>DeVontae</span>
           </h1>
           <h1 className='mb-2 ssm:text-xl md:text-2xl lg:text-3xl'>
             <span className='text-[#5651e5]'>Javascript</span> Developer
@@ -22,8 +22,8 @@ export const Hero = () => {
         </div>
         <div className='mt-10 text-center max-w-[70%]'>
           <p className=' ssm:text-sm sm:text-lg md:text-xl lg:text-2xl'>
-            I'm a Software developer who specializes in React and Javascript.
-            I'm currently focused on the following technologies:
+            I&#39;m a Software developer who specializes in React and
+            Javascript. I&#39;m currently focused on the following technologies:
             Next.js,Typescript,React Native and Tailwind. Connnect with me if
             you need my skills.
           </p>

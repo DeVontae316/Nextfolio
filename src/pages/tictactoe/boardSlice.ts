@@ -5,20 +5,23 @@ export interface GameState {
   turn: number;
   playerOne: {
     name: string;
-    points: number;
-    turns: number;
+    stats: {
+      points: number;
+      turns: number;
+    };
   };
   playerTwo: {
     name: string;
-    points: number;
-    turns: number;
+    stats: {
+      points: number;
+      turns: number;
+    };
   };
 }
 
 interface playerState {
   points: number;
   turns: number;
-  name: string;
 }
 
 const initialState: GameState = {
@@ -26,13 +29,17 @@ const initialState: GameState = {
   turn: 0,
   playerOne: {
     name: 'player 1',
-    points: 0,
-    turns: 0,
+    stats: {
+      points: 0,
+      turns: 0,
+    },
   },
   playerTwo: {
     name: 'player 2',
-    points: 0,
-    turns: 0,
+    stats: {
+      points: 0,
+      turns: 0,
+    },
   },
 };
 
@@ -47,16 +54,21 @@ export const gameSlice = createSlice({
     setCurrentPlayerStats: (state, action: PayloadAction<playerState>) => {
       const currentPlayer = state.turn % 2;
       if (currentPlayer === 1) {
-        state.playerOne = action.payload;
+        state.playerOne.stats = action.payload;
         state.turn = state.turn + 1;
       } else if (currentPlayer === 0) {
-        state.playerTwo = action.payload;
+        state.playerTwo.stats = action.payload;
         state.turn = state.turn - 1;
       }
+    },
+
+    resetGameState: (state, action: PayloadAction<GameState>) => {
+      state = action.payload;
     },
   },
 });
 
-export const { setCurrentPlayer, setCurrentPlayerStats } = gameSlice.actions;
+export const { setCurrentPlayer, setCurrentPlayerStats, resetGameState } =
+  gameSlice.actions;
 
 export default gameSlice.reducer;
