@@ -1,7 +1,9 @@
 import React from 'react';
+
 import { useAppSelector } from '../../store/hooks';
 import { resetGameState } from './boardSlice';
 const Board = () => {
+  const gameState = useAppSelector((state) => state.game);
   const playerOneTurns = useAppSelector(
     (state) => state.game.playerOne.stats.turns
   );
@@ -16,6 +18,7 @@ const Board = () => {
 
   const handleReset = () => {
     resetGameState({
+      isGameStarted: false,
       currentPlayer: undefined,
       turn: 0,
       playerOne: {
@@ -35,6 +38,7 @@ const Board = () => {
     });
   };
 
+  console.log('game state', gameState);
   console.log('playerOneTurns', playerOneTurns);
   console.log('playerTwoTurns', playerTwoTurns);
 
@@ -70,10 +74,18 @@ const Board = () => {
           );
         })}
       </div>
-
-      <button className='p-4 mt-10' onClick={handleReset}>
-        Reset Game
-      </button>
+      <section className='flex justify-center'>
+        <div className='mx-4'>
+          <button className='p-4 mt-10' onClick={handleReset}>
+            Start Game
+          </button>
+        </div>
+        <div className='mx-4'>
+          <button className='p-4 mt-10' onClick={handleReset}>
+            Reset Game
+          </button>
+        </div>
+      </section>
     </div>
   );
 };

@@ -1,6 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 export interface GameState {
+  isGameStarted: boolean;
   currentPlayer: string | unknown;
   turn: number;
   playerOne: {
@@ -25,6 +26,7 @@ interface playerState {
 }
 
 const initialState: GameState = {
+  isGameStarted: false,
   currentPlayer: undefined,
   turn: 0,
   playerOne: {
@@ -47,8 +49,8 @@ export const gameSlice = createSlice({
   name: 'tictactoe',
   initialState,
   reducers: {
-    setCurrentPlayer: (state) => {
-      state.currentPlayer = state.playerOne.name;
+    startGame: (state) => {
+      state.isGameStarted = true;
       state.turn = state.turn + 1;
     },
     setCurrentPlayerStats: (state, action: PayloadAction<playerState>) => {
@@ -68,7 +70,7 @@ export const gameSlice = createSlice({
   },
 });
 
-export const { setCurrentPlayer, setCurrentPlayerStats, resetGameState } =
+export const { startGame, setCurrentPlayerStats, resetGameState } =
   gameSlice.actions;
 
 export default gameSlice.reducer;
