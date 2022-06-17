@@ -10,14 +10,14 @@ const Board = () => {
           const secondRow = index >= 3 && index < 5;
           const thirdRow = index >= 5 && index < 10;
           return (
-            <div className='  bg-white w-[200px] h-[100px]' key={index}>
-              <div className='flex items-center justify-center h-full'>
+            <div className='  bg-white w-[200px] h-[100px] py-10' key={index}>
+              <div className='flex items-center justify-center '>
                 {firstRow && point}
               </div>
               <div className='flex items-center justify-center '>
                 {secondRow && point}
               </div>
-              <div className='flex items-center justify-center h-full bg-black'>
+              <div className='flex items-center justify-center '>
                 {thirdRow && point}
               </div>
             </div>
