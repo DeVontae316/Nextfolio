@@ -20,11 +20,6 @@ export interface GameState {
   };
 }
 
-interface playerState {
-  points: number;
-  turns: number;
-}
-
 const initialState: GameState = {
   isGameStarted: false,
   currentPlayer: undefined,
@@ -51,15 +46,15 @@ export const gameSlice = createSlice({
   reducers: {
     startGame: (state) => {
       state.isGameStarted = true;
-      state.turn = state.turn + 1;
+      state.turn += 1;
     },
-    setCurrentPlayerStats: (state, action: PayloadAction<playerState>) => {
+    setCurrentPlayerStats: (state, action: PayloadAction<number>) => {
       const currentPlayer = state.turn % 2;
       if (currentPlayer === 1) {
-        state.playerOne.stats = action.payload;
+        state.playerOne.stats.points += action.payload;
         state.turn = state.turn + 1;
       } else if (currentPlayer === 0) {
-        state.playerTwo.stats = action.payload;
+        state.playerTwo.stats.points = action.payload;
         state.turn = state.turn - 1;
       }
     },

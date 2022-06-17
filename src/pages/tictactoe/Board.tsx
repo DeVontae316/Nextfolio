@@ -1,9 +1,11 @@
 import React from 'react';
 
-import { useAppSelector } from '../../store/hooks';
-import { resetGameState } from './boardSlice';
+import { useAppSelector, useAppDispatch } from '../../store/hooks';
+import { resetGameState, setCurrentPlayerStats, startGame } from './boardSlice';
 const Board = () => {
+  const dispatch = useAppDispatch();
   const gameState = useAppSelector((state) => state.game);
+  /* const isGameStarted = useAppSelector((state) => state.game.isGameStarted); */
   const playerOneTurns = useAppSelector(
     (state) => state.game.playerOne.stats.turns
   );
@@ -14,28 +16,36 @@ const Board = () => {
 
   const handlePoint = (point: number) => {
     console.log('point', point);
+    dispatch(setCurrentPlayerStats(point));
   };
 
-  const handleReset = () => {
-    resetGameState({
-      isGameStarted: false,
-      currentPlayer: undefined,
-      turn: 0,
-      playerOne: {
-        name: 'player 1',
-        stats: {
-          points: 0,
-          turns: 0,
+  const handleStartGame = () => {
+    console.log('Game is started');
+    dispatch(startGame());
+  };
+  const handleResetGame = () => {
+    console.log('reset game');
+    dispatch(
+      resetGameState({
+        isGameStarted: false,
+        currentPlayer: undefined,
+        turn: 0,
+        playerOne: {
+          name: 'player 1',
+          stats: {
+            points: 0,
+            turns: 0,
+          },
         },
-      },
-      playerTwo: {
-        name: 'player 2',
-        stats: {
-          points: 0,
-          turns: 0,
+        playerTwo: {
+          name: 'player 2',
+          stats: {
+            points: 0,
+            turns: 0,
+          },
         },
-      },
-    });
+      })
+    );
   };
 
   console.log('game state', gameState);
@@ -76,12 +86,12 @@ const Board = () => {
       </div>
       <section className='flex justify-center'>
         <div className='mx-4'>
-          <button className='p-4 mt-10' onClick={handleReset}>
+          <button className='p-4 mt-10' onClick={handleStartGame}>
             Start Game
           </button>
         </div>
         <div className='mx-4'>
-          <button className='p-4 mt-10' onClick={handleReset}>
+          <button className='p-4 mt-10' onClick={handleResetGame}>
             Reset Game
           </button>
         </div>
