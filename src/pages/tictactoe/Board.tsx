@@ -10,7 +10,7 @@ const Board = () => {
     (state) => state.game.playerOne.stats.turns
   );
   const playerTwoTurns = useAppSelector(
-    (state) => state.game.playerOne.stats.turns
+    (state) => state.game.playerTwo.stats.turns
   );
   const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
@@ -62,29 +62,28 @@ const Board = () => {
 
   return (
     <div className='flex flex-col items-center justify-center h-[100%] mt-[90px]'>
-      <div className='grid items-center grid-cols-3 gap-2 disable '>
+      <div
+        className={
+          !isGameStarted
+            ? `grid items-center grid-cols-3 gap-2 pointer-events-none `
+            : `grid items-center grid-cols-3 gap-2 pointer-events-auto `
+        }
+      >
         {arr.map((point, index) => {
           const firstRow = index >= 0 && index < 3;
           const secondRow = index >= 3 && index < 5;
           const thirdRow = index >= 5 && index < 10;
+          const squareStyle =
+            'flex items-center justify-center cursor-pointer ';
           return (
             <div className='  bg-white w-[200px] h-[100px] py-10' key={index}>
-              <div
-                onClick={() => handlePoint(1)}
-                className='flex items-center justify-center cursor-pointer'
-              >
+              <div onClick={() => handlePoint(1)} className={squareStyle}>
                 {firstRow && 1}
               </div>
-              <div
-                onClick={() => handlePoint(2)}
-                className='flex items-center justify-center cursor-pointer '
-              >
+              <div onClick={() => handlePoint(2)} className={squareStyle}>
                 {secondRow && 2}
               </div>
-              <div
-                onClick={() => handlePoint(3)}
-                className='flex items-center justify-center cursor-pointer '
-              >
+              <div onClick={() => handlePoint(3)} className={squareStyle}>
                 {thirdRow && 3}
               </div>
             </div>

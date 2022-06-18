@@ -52,10 +52,12 @@ export const gameSlice = createSlice({
       const currentPlayer = state.turn % 2;
       if (currentPlayer === 1) {
         state.playerOne.stats.points += action.payload;
-        state.turn = state.turn + 1;
+        state.playerOne.stats.turns += 1;
+        state.turn -= 1;
       } else if (currentPlayer === 0) {
-        state.playerTwo.stats.points = action.payload;
-        state.turn = state.turn - 1;
+        state.playerTwo.stats.points += action.payload;
+        state.playerTwo.stats.turns += 1;
+        state.turn += 1;
       }
     },
 
